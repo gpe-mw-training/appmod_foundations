@@ -38,6 +38,7 @@ spec:
           protocol: TCP
         securityContext:
           privileged: false
+
       ## Insert Volumes here
       volumes:
         - configMap:

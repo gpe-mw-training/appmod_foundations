@@ -23,9 +23,13 @@ spec:
         - name: JAVA_APP_DIR
           value: /deployments
         - name: JAVA_OPTIONS
-          value: -Dswarm.project.stage=production
+          value: "-Dswarm.project.stage=production -Dswarm.project.stage.file=file:///app/config/inventory-config.yml"
 
         ## Insert Volume Mounts here
+        volumeMounts:
+          - name: config
+            mountPath: /app/config
+
 
         name: inventory
         image: inventory:latest
@@ -37,9 +41,15 @@ spec:
         securityContext:
           privileged: false
 
-        # Insert health probes here
-
       ## Insert Volumes here
+      volumes:
+        - configMap:
+            name: app-config
+            items:
+            - key: "inventory-config"
+              path: "inventory-config.yml"
+          name: config
+
 
   triggers:
   - type: ConfigChange

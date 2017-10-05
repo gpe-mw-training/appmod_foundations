@@ -107,6 +107,11 @@
                         <includes>
                             <include>wildfly-swarm</include>
                         </includes>
+                        <config>
+                            <wildfly-swarm>
+                                <from>registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift</from>
+                            </wildfly-swarm>
+                        </config>
                     </generator>
                 </configuration>
             </plugin>
@@ -164,6 +169,21 @@
         </dependency>
 
         <!-- Insert additional dependencies here -->
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>flyway</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>swagger</artifactId>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>swagger-webapp</artifactId>
+        </dependency>
+
 
     </dependencies>
 
