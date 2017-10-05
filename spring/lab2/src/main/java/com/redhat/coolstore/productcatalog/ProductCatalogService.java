@@ -1,5 +1,8 @@
 package com.redhat.coolstore.productcatalog;
 
+import java.util.List;
+
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
@@ -12,14 +15,21 @@ import org.springframework.stereotype.Component;
 @Path("/products")
 public class ProductCatalogService {
 
-    @Value("${coolstore.message:Hello World!}")
-    String message;
-    public String sayHello() {
-        return message;
-    }
+	@Value("${coolstore.message:Hello World!}")
+	String message;
 
-    @GET
+	@Inject
+	ProductRepository catalog;
+	public String sayHello() {
+		return message;
+	}
+
+	@GET
 	public Response list() {
-		return Response.ok(message,MediaType.APPLICATION_JSON).build();
+		List<Product> products = catalog.findAll();
+		if(products==null || products.isEmpty()) {
+			return Response.serverError().entity("Did not found any products").build();
+		}
+		return Response.ok(products,MediaType.APPLICATION_JSON).build();
 	}
 }

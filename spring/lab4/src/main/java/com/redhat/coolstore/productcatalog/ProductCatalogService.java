@@ -5,8 +5,8 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -14,15 +14,9 @@ import org.springframework.stereotype.Component;
 @Component
 @Path("/products")
 public class ProductCatalogService {
-
-	@Value("${coolstore.message:Hello World!}")
-	String message;
-
+	
 	@Inject
 	ProductRepository catalog;
-	public String sayHello() {
-		return message;
-	}
 
 	@GET
 	public Response list() {
@@ -32,4 +26,5 @@ public class ProductCatalogService {
 		}
 		return Response.ok(products,MediaType.APPLICATION_JSON).build();
 	}
+	
 }

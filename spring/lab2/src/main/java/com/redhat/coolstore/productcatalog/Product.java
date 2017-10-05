@@ -20,7 +20,7 @@ public class Product {
 	private String description;
 	private double price;
 	
-	protected Product() {}
+	public Product() {}
 
 	public Long getItemId() {
 		return itemId;

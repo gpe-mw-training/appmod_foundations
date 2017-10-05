@@ -6,8 +6,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
 public class ProductCatalogApplication extends SpringBootServletInitializer {
-
 	public static void main(String[] args) {
-		SpringApplication.run(ProductCatalogApplication.class, args);
+		SpringApplication.run(ProductCatalogApplication.class, args);	
 	}
 }

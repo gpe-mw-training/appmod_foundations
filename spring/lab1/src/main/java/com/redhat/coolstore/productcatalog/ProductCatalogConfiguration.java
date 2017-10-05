@@ -15,5 +15,6 @@ public class ProductCatalogConfiguration {
 		JacksonJaxbJsonProvider provider = new JacksonJaxbJsonProvider();
 		provider.setMapper(objectMapper);
 		return provider;
-	}
+    }
+    
 }
