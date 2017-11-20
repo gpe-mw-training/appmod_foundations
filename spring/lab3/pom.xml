@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.redhat.coolstore</groupId>
-	<artifactId>product-catalog</artifactId>
+	<artifactId>product-catalog-lab-3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>product-catalog</name>
+	<name>product-catalog-lab-3</name>
 	<description>Product catalog for coolstore</description>
 
 	<parent>
