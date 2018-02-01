@@ -13,27 +13,29 @@
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
---><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.redhat.coolstore</groupId>
   <artifactId>product-catalog-lab3</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
 
   <name>product-catalog-lab3</name>
   <description>Demo project for Spring Boot</description>
 
-  <parent>
-    <groupId>io.openshift</groupId>
-    <artifactId>booster-parent</artifactId>
-    <version>11</version>
-  </parent>
-
   <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+
     <postgresql.version>9.4.1212</postgresql.version>
+
     <spring-boot.version>1.5.8.RELEASE</spring-boot.version>
     <spring-boot.bom.version>1.5.8.Final-redhat-1</spring-boot.bom.version>
+
+    <fabric8-maven-plugin.version>3.5.19</fabric8-maven-plugin.version>
+
   </properties>
 
   <dependencyManagement>
@@ -107,6 +109,7 @@
   </build>
 
   <profiles>
+  
     <profile>
       <id>local</id>
       <activation>
@@ -119,6 +122,7 @@
         </dependency>
       </dependencies>
     </profile>
+    
     <profile>
       <id>openshift</id>
       <dependencies>
@@ -135,6 +139,7 @@
           <plugin>
             <groupId>io.fabric8</groupId>
             <artifactId>fabric8-maven-plugin</artifactId>
+            <version>${fabric8-maven-plugin.version}</version>
             <executions>
               <execution>
                 <id>fmp</id>
@@ -149,39 +154,21 @@
         </plugins>
       </build>
     </profile>
-    <profile>
-      <id>openshift-it</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-failsafe-plugin</artifactId>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>integration-test</goal>
-                  <goal>verify</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-      <activation />
-      <dependencies>
-        <dependency>
-          <groupId>io.fabric8</groupId>
-          <artifactId>kubernetes-client</artifactId>
-          <version>1.4.34</version>
-          <scope>test</scope>
-        </dependency>
-        <dependency>
-          <groupId>io.fabric8</groupId>
-          <artifactId>openshift-client</artifactId>
-          <version>1.4.34</version>
-          <scope>test</scope>
-        </dependency>
-      </dependencies>
-    </profile>
+    
   </profiles>
+  
+  <repositories>
+    <repository>
+      <id>redhat</id>
+      <url>https://maven.repository.redhat.com/ga/</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>redhat</id>
+      <url>https://maven.repository.redhat.com/ga/</url>
+    </pluginRepository>
+  </pluginRepositories>
+  
 </project>
