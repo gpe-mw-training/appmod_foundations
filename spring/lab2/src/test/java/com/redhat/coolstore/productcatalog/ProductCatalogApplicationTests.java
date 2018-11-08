@@ -24,13 +24,6 @@ public class ProductCatalogApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-	
-    @Test
-    public void testDefaultProductList() {
-        String message = productCatalogService.sayHello();
-        assertTrue(message!=null);
-        assertEquals(message,"Hey Developer!");
-    }
-	
+		
 
 }
