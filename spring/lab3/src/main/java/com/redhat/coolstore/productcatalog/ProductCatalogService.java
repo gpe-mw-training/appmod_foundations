@@ -4,27 +4,20 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/products")
+@RestController
 public class ProductCatalogService {
 
+    @Autowired
+    private ProductRepository productRepository;
+    
     @Value("${coolstore.message:Hello World!}")
     private String message;
 
-	@Autowired
-	private ProductRepository productRepository;
-    
-    public String sayHello() {    		
-        return message;
-    }
-    
-    @ResponseBody
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)    
-    public List<Product> list() {    		
+    @GetMapping("/products")
+    public List<Product> list() {
         return productRepository.findAll();
     }
     
