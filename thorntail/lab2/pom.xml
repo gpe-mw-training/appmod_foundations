@@ -19,12 +19,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.redhat.coolstore</groupId>
-  <artifactId>swarm-inventory-lab2</artifactId>
+  <artifactId>thorntail-inventory-lab2</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
   <name>Inventory Microservice</name>
-  <description>WildFly Swarm : REST - JDBC - Inventory Service</description>
+  <description>Thorntail : REST - JDBC - Inventory Service</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,7 +33,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
 
-	  <version.wildfly.swarm>7.0.0.redhat-8</version.wildfly.swarm>
+    <version.thorntail>2.2.0.Final-redhat-00021</version.thorntail>
 
     <version.h2>1.4.187</version.h2>
     <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -48,21 +48,22 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.wildfly.swarm</groupId>
+        <groupId>io.thorntail</groupId>
         <artifactId>bom</artifactId>
-        <version>${version.wildfly.swarm}</version>
+        <version>${version.thorntail}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-
-    <!-- Add additional dependency management here -->
-
-
-
-
+      
+      <dependency>
+        <groupId>io.thorntail</groupId>
+        <artifactId>bom-certified</artifactId>
+        <version>${version.thorntail}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
  
     </dependencies>
-
   </dependencyManagement>
 
 
@@ -70,9 +71,9 @@
     <plugins>
 
       <plugin>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>wildfly-swarm-plugin</artifactId>
-        <version>${version.wildfly.swarm}</version>
+        <groupId>io.thorntail</groupId>
+        <artifactId>thorntail-maven-plugin</artifactId>
+        <version>${version.thorntail}</version>
         <executions>
           <execution>
             <goals>
@@ -93,28 +94,29 @@
   </build>
   <dependencies>
 
+
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>jaxrs</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>cdi</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>ejb</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>jpa</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>datasources</artifactId>
     </dependency>
 
