@@ -23,7 +23,7 @@ spec:
         - name: JAVA_APP_DIR
           value: /deployments
         - name: JAVA_OPTIONS
-          value: -Dthorntail.project.stage=production
+          value: -Dswarm.project.stage=production
         name: thorntail-inventory-lab2
         image: thorntail-inventory-lab2
         imagePullPolicy: IfNotPresent

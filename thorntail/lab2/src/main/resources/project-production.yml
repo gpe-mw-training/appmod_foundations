@@ -1,4 +1,4 @@
-thorntail:
+swarm:
   logging: INFO
   datasources:
     data-sources:
