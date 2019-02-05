@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: DeploymentConfig
 metadata:
-  name: swarm-inventory-database-lab2
+  name: thorntail-inventory-database-lab2
   labels:
-    app: swarm-inventory-database-lab2
+    app: thorntail-inventory-database-lab2
   annotations:
     openshift.io/generated-by: OpenShiftNewApp
 spec:
@@ -15,7 +15,7 @@ spec:
       imageChangeParams:
         automatic: true
         containerNames:
-          - swarm-inventory-database-lab2
+          - thorntail-inventory-database-lab2
         from:
           kind: ImageStreamTag
           namespace: openshift
@@ -23,19 +23,19 @@ spec:
   replicas: 1
   test: false
   selector:
-    app: swarm-inventory-database-lab2
-    deploymentconfig: swarm-inventory-database-lab2
+    app: thorntail-inventory-database-lab2
+    deploymentconfig: thorntail-inventory-database-lab2
   template:
     metadata:
       labels:
-        app: swarm-inventory-database-lab2
-        deploymentconfig: swarm-inventory-database-lab2
+        app: thorntail-inventory-database-lab2
+        deploymentconfig: thorntail-inventory-database-lab2
     spec:
       volumes:
-        - name: swarm-inventory-database-lab2-volume-1
+        - name: thorntail-inventory-database-lab2-volume-1
           emptyDir: {}
       containers:
-        - name: swarm-inventory-database-lab2
+        - name: thorntail-inventory-database-lab2
           image: postgresql
           imagePullPolicy: IfNotPresent
           ports:
@@ -47,7 +47,7 @@ spec:
             - name: POSTGRESQL_PASSWORD
               value: password
             - name: POSTGRESQL_USER
-              value: swarm
+              value: thorntail
           livenessProbe:
             initialDelaySeconds: 30
             tcpSocket:

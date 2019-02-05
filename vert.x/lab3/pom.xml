@@ -20,10 +20,10 @@
     <vertx.verticle>io.openshift.booster.HttpApplication</vertx.verticle>
 
     <!-- vert.x properties -->
-    <vertx.version>3.4.2.redhat-006</vertx.version>
+    <vertx.version>3.5.4.redhat-00002</vertx.version>
 
     <!-- Maven plugins -->
-    <vertx-maven-plugin.version>1.0.13</vertx-maven-plugin.version>
+    <vertx-maven-plugin.version>1.0.17</vertx-maven-plugin.version>
     <fabric8-maven-plugin.version>3.5.19</fabric8-maven-plugin.version>
 
   </properties>
@@ -71,19 +71,19 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.22</version>
+      <version>1.7.25</version>
     </dependency>
 
     <!-- Application logging -->
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
-      <version>2.8.1</version>
+      <version>2.11.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
-      <version>2.8.1</version>
+      <version>2.11.1</version>
     </dependency>
 
   </dependencies>
@@ -91,7 +91,7 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>io.fabric8</groupId>
+        <groupId>io.reactiverse</groupId>
         <artifactId>vertx-maven-plugin</artifactId>
         <version>${vertx-maven-plugin.version}</version>
         <executions>

@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: inventory
   annotations:
-    description: Inventory Service based on WF Swarm
+    description: Inventory Service based on Thorntail
     service.alpha.openshift.io/dependencies: '[{"name":"inventory-database","namespace":"","kind":"Service"}]'
 spec:
   ports:
