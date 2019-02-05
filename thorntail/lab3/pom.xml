@@ -148,15 +148,9 @@
 
         <!-- Add additional dependencies here -->
 
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>monitor</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.core</groupId>
-            <artifactId>wildfly-controller-client</artifactId>
-            <version>2.2.1.Final</version>
-        </dependency>
+
+
+
         
     </dependencies>
 

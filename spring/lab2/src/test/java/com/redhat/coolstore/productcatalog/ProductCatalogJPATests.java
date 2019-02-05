@@ -1,8 +1,10 @@
 package com.redhat.coolstore.productcatalog;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 @DataJpaTest
 public class ProductCatalogJPATests {
-	
+
 	@Autowired
 	private ProductRepository productRepository;
 	
@@ -23,13 +25,13 @@ public class ProductCatalogJPATests {
 	public void testFindAll() {
 		List<Product> productList = productRepository.findAll();
 		assertEquals(productList.size(), 8);
-	}
+	}	
 	
 	@Test
 	public void testFindByName() {
 		Product product = productRepository.findByName("Oculus Rift");
 		assertTrue(444435L == product.getItemId());
-	}
+	}	
 	
 	@Test
 	public void testSaveAndDeleteProduct() {
@@ -47,6 +49,5 @@ public class ProductCatalogJPATests {
 		productRepository.delete(product);
 
 		assertNull(productRepository.findOne(id));
-	}
-	
+	}	
 }

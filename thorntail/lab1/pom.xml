@@ -14,11 +14,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.redhat.coolstore</groupId>
-	<artifactId>inventory</artifactId>
+	<artifactId>thorntail-inventory-lab1</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>Inventory Microservice</name>
+	<name>Thorntail Inventory Microservice - Lab 1</name>
 	<description>Java EE : REST - JDBC - Inventory Service</description>
 
 	<properties>
@@ -32,40 +32,47 @@
 		<version.h2>1.4.187</version.h2>
 
 		<!-- TODO: Add additional properties here -->
-		<version.wildfly.swarm>7.0.0.redhat-8</version.wildfly.swarm>
+    		<version.thorntail>2.2.0.Final-redhat-00021</version.thorntail>
 
 	</properties>
 
 	<!-- TODO: Add dependency management here -->
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.wildfly.swarm</groupId>
-				<artifactId>bom</artifactId>
-				<version>${version.wildfly.swarm}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.thorntail</groupId>
+        <artifactId>bom</artifactId>
+        <version>${version.thorntail}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.thorntail</groupId>
+        <artifactId>bom-certified</artifactId>
+        <version>${version.thorntail}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
 
 	<build>
 		<plugins>
 
 			<!-- TODO: Add <plugin>..</plugin> here -->
-
-			<plugin>
-				<groupId>org.wildfly.swarm</groupId>
-				<artifactId>wildfly-swarm-plugin</artifactId>
-				<version>${version.wildfly.swarm}</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>package</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+      <plugin>
+        <groupId>io.thorntail</groupId>
+        <artifactId>thorntail-maven-plugin</artifactId>
+        <version>${version.thorntail}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>package</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
 
 		</plugins>
 	</build>
@@ -88,18 +95,19 @@
 	</dependencies>
 
 	<!-- TODO: Add repositories here -->
-	<repositories>
-		<repository>
-			<id>redhat</id>
-			<url>https://maven.repository.redhat.com/ga/</url>
-		</repository>
-	</repositories>
+  <repositories>
+    <repository>
+      <id>redhat</id>
+      <url>https://maven.repository.redhat.com/ga/</url>
+    </repository>
+  </repositories>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>redhat</id>
-			<url>https://maven.repository.redhat.com/ga/</url>
-		</pluginRepository>
-	</pluginRepositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>redhat</id>
+      <url>https://maven.repository.redhat.com/ga/</url>
+    </pluginRepository>
+  </pluginRepositories>
+
 
 </project>

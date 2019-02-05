@@ -12,7 +12,7 @@ public class MyFirstVerticle extends AbstractVerticle {
     vertx.createHttpServer()
     .requestHandler(req -> {
             req.response().end(
-              "YoYo! Hello: Time on the server is "
+              "Hello John: Time on the server is "
               + java.time.LocalDateTime.now());
     })
     .listen(8080);
