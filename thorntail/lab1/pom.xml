@@ -29,7 +29,7 @@
 	    <maven.compiler.target>1.8</maven.compiler.target>
 		
 		<failOnMissingWebXml>false</failOnMissingWebXml>
-		<version.h2>1.4.187</version.h2>
+		<version.h2>2.1.210</version.h2>
 
 		<!-- TODO: Add additional properties here -->
 
